@@ -19,6 +19,7 @@ body {
     position: relative;
 }
 
+/* Navigation */
 nav {
     z-index: 4;
     position: sticky;
@@ -104,6 +105,7 @@ section .content {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    position: relative; /* Ensure proper stacking order */
 }
 
 .content .main-content {
@@ -111,6 +113,7 @@ section .content {
     display: flex;
     flex-direction: column;
     margin: 0 10%;
+    z-index: 2; /* Ensure text stays in front of images */
 }
 
 .main-content h1 {
@@ -132,13 +135,15 @@ section .content {
     display: flex;
     margin-top: 5px;
     justify-content: center;
+    z-index: 1; /* Ensure image stays behind the text */
 }
 
 .image img {
     margin-top: 40px;
     width: 500px;
     filter: drop-shadow(0 0 400px #fca61f);
-    border-radius: 20px; /* Rounded corners for noe.png */
+    border-radius: 20px;
+    max-width: 100%; /* Ensure images scale well */
 }
 
 /* Responsive Design */
@@ -165,7 +170,7 @@ section .content {
     .content {
         margin-top: -100px;
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column-reverse; /* Stacks text below images on smaller screens */
         width: 100%;
         justify-content: center;
     }
@@ -179,6 +184,7 @@ section .content {
         max-width: 350px;
         align-items: center;
         width: 100%;
+        z-index: 2; /* Ensure text stays above image */
     }
 
     .main-content p {
@@ -338,6 +344,7 @@ footer {
     border-radius: 5px;
     cursor: pointer;
 }
+
 #darkModeToggle {
     position: fixed;
     bottom: 20px;
@@ -357,4 +364,385 @@ footer {
     height: 100%; /* ensures the image fits well */
     object-fit: cover;
 }
+ /* Pop-up Message Style */
+        .popup {
+            display: none; /* Hide by default */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        /* Pop-up Fade-in Animation */
+       /* Pop-up Message Style */
+.popup {
+    display: none; /* Hide by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Pop-up Fade-in Animation */
+.popup.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Dark Mode Popup */
+#darkModePopup {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Basic Button Style */
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.contact{
+    min-height: 100vh;
+    background-color: #e8f0fe;
+    padding: 50px;
+    text-align: center;
+}
+.container{
+    max-width: 800px;
+    margin: 290px auto;
+}
+.container h2{
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #333;
+}
+.contact-wrapper{
+    display: grid;
+    grid-template-columns: repeat(2m 1fr);
+     grid-gap: 30px;
+}
+.contact-form{
+    text-align: left;
+}
+.contact-form h3{
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+
+}
+.form-group{
+    margin-bottom: 20px;
+}
+input, textarea{
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: #f8f9fa;
+    color: #333;
+}
+input:focus,
+textarea:focus{
+    outline: none;
+    box-shadow: 0 0 8px #bbb;
+
+}
+button{
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+button:hover{
+    background-color: #45a049;
+
+}
+.contact-info h3{
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+.contact-info p{
+    margin-bottom: 10px;
+    color: #555;
+}
+.contact-info i{
+    color: #4caf50;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 768px){
+    .container{
+        padding: 20px;
+    }
+    .contact-wrapper{
+        grid-template-columns: repeat(2, 1fr);
+    }
     
+}
+
+/* Default (Light) Mode Styles */
+body {
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.contact {
+    background-color: white;
+    color: black;
+    padding: 20px;
+}
+
+.contact .contact-info p {
+    color: black;
+}
+
+.contact form input, .contact form textarea {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.contact form button {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+}
+
+.contact h2, .contact h3 {
+    color: black;
+    text-align: center;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212; /* Dark background */
+    color: white;
+}
+
+body.dark-mode .contact {
+    background-color: #333; /* Dark background for contact section */
+    color: white;
+}
+
+body.dark-mode .contact .contact-info p {
+    color: white; /* White text for contact info in dark mode */
+}
+
+body.dark-mode .contact form input, 
+body.dark-mode .contact form textarea {
+    background-color: #555; /* Dark background for form fields */
+    color: white;
+}
+
+body.dark-mode .contact form button {
+    background-color: #444; /* Dark button background */
+    color: white;
+}
+
+body.dark-mode .contact h2,
+body.dark-mode .contact h3 {
+    color: white; /* Light text for headings in dark mode */
+}
+
+/* Responsive Design - Mobile Devices (54px to 866px screen width) */
+@media (max-width: 866px) {
+    body {
+        padding: 0 10px;
+    }
+    
+    .contact {
+        padding: 15px;
+    }
+
+    .contact .contact-info {
+        margin-bottom: 20px;
+    }
+
+    .contact .contact-info p {
+        font-size: 14px;
+    }
+
+    .contact form input,
+    .contact form textarea {
+        padding: 8px;
+    }
+
+    .contact form button {
+        padding: 10px;
+    }
+
+    .contact h2, .contact h3 {
+        font-size: 20px;
+    }
+}
+
+/* Responsive Design for smaller mobile screens (e.g., 54px wide screens) */
+@media (max-width: 540px) {
+    body {
+        padding: 0 5px;
+    }
+
+    .contact {
+        padding: 10px;
+    }
+
+    .contact .contact-info {
+        margin-bottom: 15px;
+    }
+
+    .contact .contact-info p {
+        font-size: 12px;
+    }
+
+    .contact form input,
+    .contact form textarea {
+        padding: 6px;
+    }
+
+    .contact form button {
+        padding: 8px;
+    }
+
+    .contact h2, .contact h3 {
+        font-size: 18px;
+    }
+
+    .contact .contact-form {
+        width: 100%;
+    }
+
+    .contact .contact-info {
+        width: 100%;
+    }
+}
+/* Hamburger menu styles */
+.hamburg {
+    display: none;  /* Hide by default */
+    cursor: pointer;
+    z-index: 9999;  /* Ensure it stays on top */
+}
+
+/* Show hamburger icon when screen width is small */
+@media (max-width: 866px) {
+    .hamburg {
+        display: block;
+    }
+
+    .dropmenu {
+        display: none;  /* Hide menu by default */
+        position: absolute;
+        top: 60px; /* Adjust according to your header height */
+        left: 0;
+        background-color: #333;
+        width: 100%;
+        z-index: 9999; /* Ensure the menu is on top */
+    }
+
+    .dropmenu a {
+        display: block;
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .dropmenu a:hover {
+        background-color: #444;
+    }
+
+    .hamburg.active + .dropmenu {
+        display: block;  /* Show the menu when hamburger is clicked */
+    }
+}
+/* General styles for the hamburger */
+.hamburg {
+    display: none;  /* Hidden by default */
+    cursor: pointer;
+    position: absolute;
+    top: 20px;  /* Adjust according to your header */
+    right: 20px;  /* Position the hamburger icon to the right */
+    z-index: 9999;  /* Ensure it's on top */
+}
+
+/* Show the hamburger on small screens */
+@media (max-width: 866px) {
+    .hamburg {
+        display: block;
+    }
+
+    /* Dropdown menu visibility */
+    .dropmenu {
+        display: none;  /* Hide by default */
+        position: absolute;
+        top: 60px;  /* Adjust according to the header height */
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        z-index: 9998;  /* Ensure it's beneath the hamburger */
+    }
+
+    .dropmenu.active {
+        display: block;  /* Show when active */
+    }
+
+    /* Style the dropdown links */
+    .dropmenu a {
+        display: block;
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .dropmenu a:hover {
+        background-color: #444;
+    }
+}
+/* General hamburger menu styles */
+.hamburg {
+    display: none;  /* Hide by default */
+    cursor: pointer;
+    position: absolute;
+    top: 20px;  /* Adjust according to your header */
+    right: 20px;  /* Position the hamburger icon to the right */
+    z-index: 9999;  /* Ensure it's on top */
+}
+
